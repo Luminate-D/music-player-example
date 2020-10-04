@@ -1,0 +1,49 @@
+<div class="root">
+    <div class="header">
+        <div class="subheader-1">
+            <span class="title">
+                Music Player Exapmle
+            </span>
+            Select track below to play it, use pause and stop buttons too
+        </div>
+        <div class="subheader-2">
+            <img id="play" class="play" src="https://pngriver.com/wp-content/uploads/2018/04/Download-Play-Triangle-Button-Symbols-Png-Image-80520-For-Designing-Projects.png">
+            <img id="pause" class="pause" src="https://lh3.googleusercontent.com/proxy/o-XTzvHbbDdSVXhg-lQe1wlIzHrTx2XyGdGfoJ5g6mTApDAjqHWLG9SifCYFehwAgWrBns3NecITz8QFwgvAnUsvPMoKd8gKmZ3S76ToD_8rLQ0iBqd5KZ4Dh8B-cxc">
+            <img id="stop" src="https://icons-for-free.com/iconfiles/png/512/pause+play+square+stop+icon-1320185672026264120.png" class="stop">
+        </div>
+    </div>
+    <div class="container">
+        <hr class="slicer">
+        {{#each songs}}
+            <div class="song" data-song-path="{{this.path}}" data-id="{{@index}}">
+                <img class="songicon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQB-1WYzQQtRd3eWUYUdBOQe4R6VX_cbAg8kw&usqp=CAU">
+                <span class="verticalslicer"></span>
+                <div class="songmaininfo">
+                    <span class="songauthor">{{this.author}}</span>
+                    <span>{{this.name}}</span>
+                </div>
+                <div class="player">
+                    <div class="time-wrapper">
+                        <span class="elapsed">00:00</span>
+                        /
+                        <span class="total">02:30</span>
+                    </div>
+                    <div class="playerline-wrapper">
+                        <div class="playerline-progress" id="playerProgress"></div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        <hr class="slicer">
+        <div class="selected">
+            <span>
+                <span style="font-weight: bold;">Selected song: </span>
+                <span id="selName">---</span>
+            </span>
+            <span>
+                <span style="font-weight: bold;">Status: </span>
+                <span id="selStatus">---</span>
+            </span>
+        </div>
+    </div>
+</div>
