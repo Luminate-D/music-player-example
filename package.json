@@ -1,0 +1,29 @@
+{
+  "name": "music-player-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "dependencies": {
+    "express-handlebars": "^5.1.0",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "promise-fs": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node .",
+    "start-dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luminate-D/music-player-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luminate-D/music-player-example/issues"
+  },
+  "homepage": "https://github.com/Luminate-D/music-player-example#readme"
+}
