@@ -1,11 +1,13 @@
 {
   "name": "music-player-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web Music Player Example [Local songs]",
   "main": "src/app.js",
   "dependencies": {
-    "express-handlebars": "^5.1.0",
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "get-mp3-duration": "^1.0.0",
     "http": "^0.0.1-security",
     "path": "^0.12.7",
     "promise-fs": "^2.1.1"

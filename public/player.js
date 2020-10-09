@@ -1,8 +1,5 @@
-window.status = 0; // 0 - nothing; 1 - play; 2 - pause
-window.selected = {
-    id: undefined, name: undefined,
-    duration: undefined, path: undefined
-}
+window.status = 0;
+window.selected = {};
 
 document.addEventListener('DOMContentLoaded', async (_event) => {
     window.playbtn = document.getElementById('play');
@@ -21,8 +18,7 @@ document.addEventListener('DOMContentLoaded', async (_event) => {
             window.selected = {
                 id: track.dataset['id'],
                 name: track.children[2].children[1].textContent,
-                path: track.dataset['songPath'],
-                duration: 0
+                path: track.dataset['songPath']
             }
 
             window.selName.textContent = window.selected.name;
@@ -49,10 +45,14 @@ document.addEventListener('DOMContentLoaded', async (_event) => {
         window.player.src = undefined;
     });
 
-    window.player.addEventListener('timeupdate', function() {
-        let currentTime = player.currentTime;
-        let duration = player.duration;
-        window.playerProgress.style.width = (duration / 100 * currentTime).toFixed(1) + '%';
-        console.log(window.playerProgress.style.width);
+    window.player.addEventListener('timeupdate', () => {
+        document.querySelector(`.song[data-id="${window.selected.id}"] > div.player > div.time-wrapper > .elapsed`)
+            .textContent = getDuration(player.currentTime);
+
+        window.playerProgress.style.width = ((player.currentTime / player.duration) * 100).toFixed(1) + '%';
     });
 });
+
+function getDuration(seconds) {
+    return new Date(seconds * 1000).toISOString().substr(11, 8);
+}
