@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async (_event) => {
     window.selName = document.getElementById('selName');
     window.selStatus = document.getElementById('selStatus');
 
-    window.playerProgress = document.getElementById('playerProgress');
     window.player = document.getElementById('musicPlayer');
 
     let songs = Array.from(document.getElementsByClassName('song'));
@@ -49,7 +48,8 @@ document.addEventListener('DOMContentLoaded', async (_event) => {
         document.querySelector(`.song[data-id="${window.selected.id}"] > div.player > div.time-wrapper > .elapsed`)
             .textContent = getDuration(player.currentTime);
 
-        window.playerProgress.style.width = ((player.currentTime / player.duration) * 100).toFixed(1) + '%';
+        document.querySelector(`.song[data-id="${window.selected.id}"] > div.player > div.playerline-wrapper > .playerline-progress`)
+            .style.width = ((player.currentTime / player.duration) * 100).toFixed(1) + '%';
     });
 });
 
